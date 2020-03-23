@@ -57,23 +57,7 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--                <version>3.0.0-M1</version>-->
-<!--                <configuration>-->
-<!--                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
-<!--                </configuration>-->
-<!--&lt;!&ndash;                <executions>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <id>attach-javadoc</id>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <phase>verify</phase>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <goal>jar</goal>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                </executions>&ndash;&gt;-->
-<!--            </plugin>-->
+
         </plugins>
     </build>
 </project>
