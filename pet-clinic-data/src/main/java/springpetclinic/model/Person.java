@@ -1,4 +1,4 @@
-package com.teza.springpetclinic.model;
+package springpetclinic.model;
 
 public class Person {
 
