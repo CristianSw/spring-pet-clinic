@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-pet-clinic</artifactId>
         <groupId>com.teza</groupId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -57,23 +59,6 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--                <version>3.0.0-M1</version>-->
-<!--                <configuration>-->
-<!--                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
-<!--                </configuration>-->
-<!--&lt;!&ndash;                <executions>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <id>attach-javadoc</id>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <phase>verify</phase>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <goal>jar</goal>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                </executions>&ndash;&gt;-->
-<!--            </plugin>-->
         </plugins>
     </build>
 </project>
