@@ -1,7 +1,6 @@
-package springpetclinic.services;
+package com.teza.springpetclinic.services;
 
-import springpetclinic.model.Owner;
-import springpetclinic.model.Vet;
+import com.teza.springpetclinic.model.Vet;
 
 import java.util.Set;
 
