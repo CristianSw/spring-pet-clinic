@@ -25,7 +25,7 @@
 
     <properties>
         <java.version>13</java.version>
-        <start-class>com.teza.springpetclinic.SpringPetClinicApplication</start-class>
+        <start-class>com.teza.com.teza.springpetclinic.SpringPetClinicApplication</start-class>
     </properties>
 
 
