@@ -1,11 +1,11 @@
 package com.teza.springpetclinic.services.map;
 
 import com.teza.springpetclinic.model.Vet;
-import com.teza.springpetclinic.services.CrudService;
+import com.teza.springpetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -29,5 +29,10 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     @Override
     public Vet findById(final Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Vet findByLastName(String lastName) {
+        return null;
     }
 }
