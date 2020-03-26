@@ -2,9 +2,10 @@ package com.teza.springpetclinic.services.map;
 
 import com.teza.springpetclinic.model.Vet;
 import com.teza.springpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {

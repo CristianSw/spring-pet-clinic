@@ -4,18 +4,18 @@ import com.teza.springpetclinic.model.Owner;
 import com.teza.springpetclinic.model.Vet;
 import com.teza.springpetclinic.services.OwnerService;
 import com.teza.springpetclinic.services.VetService;
-import com.teza.springpetclinic.services.map.OwnerServiceMap;
-import com.teza.springpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataInit implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataInit() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataInit(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -40,7 +40,8 @@ public class DataInit implements CommandLineRunner {
         vet1.setFirstName("John");
         vet1.setLastName("Deere");
 
-        vetService.save(vet1);;
+        vetService.save(vet1);
+        ;
 
         Vet vet2 = new Vet();
         vet2.setId(2L);
