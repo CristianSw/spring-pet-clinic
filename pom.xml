@@ -25,6 +25,8 @@
     <properties>
         <java.version>13</java.version>
         <start-class>com.teza.com.teza.springpetclinic.SpringPetClinicApplication</start-class>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
 
