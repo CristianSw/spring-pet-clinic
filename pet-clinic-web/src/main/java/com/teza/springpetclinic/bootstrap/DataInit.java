@@ -1,8 +1,11 @@
 package com.teza.springpetclinic.bootstrap;
 
 import com.teza.springpetclinic.model.Owner;
+import com.teza.springpetclinic.model.Pet;
+import com.teza.springpetclinic.model.PetType;
 import com.teza.springpetclinic.model.Vet;
 import com.teza.springpetclinic.services.OwnerService;
+import com.teza.springpetclinic.services.PetTypeService;
 import com.teza.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,14 +15,24 @@ public class DataInit implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataInit(OwnerService ownerService, VetService vetService) {
+    public DataInit(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Cristian");
