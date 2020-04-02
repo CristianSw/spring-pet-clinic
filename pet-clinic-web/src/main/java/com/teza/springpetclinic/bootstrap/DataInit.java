@@ -10,6 +10,8 @@ import com.teza.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataInit implements CommandLineRunner {
 
@@ -37,11 +39,31 @@ public class DataInit implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Cristian");
         owner1.setLastName("Dolinta");
+        owner1.setAddress("Tighina 2/3");
+        owner1.setCity("Chisinau");
+        owner1.setTelephone("+37379356922");
+
+        Pet cristianPet = new Pet();
+        cristianPet.setType(savedDogPetType);
+        cristianPet.setOwner(owner1);
+        cristianPet.setBirthDate(LocalDate.now());
+        cristianPet.setName("Lulu");
+        owner1.getPets().add(cristianPet);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Daniela");
         owner2.setLastName("Tanas");
+        owner2.setAddress("Some Street");
+        owner2.setCity("Balabanesti");
+        owner2.setTelephone("+37379356933");
+
+        Pet danielaPet = new Pet();
+        danielaPet.setType(savedCatPetType);
+        danielaPet.setOwner(owner2);
+        danielaPet.setBirthDate(LocalDate.now());
+        danielaPet.setName("Mia");
+        owner2.getPets().add(danielaPet);
         ownerService.save(owner2);
 
         System.out.println("Owners loaded !");
