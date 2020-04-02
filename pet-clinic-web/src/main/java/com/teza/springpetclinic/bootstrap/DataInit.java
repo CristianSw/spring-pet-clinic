@@ -103,6 +103,7 @@ public class DataInit implements CommandLineRunner {
         vet3.setFirstName("Alexander");
         vet3.setLastName("Hulk");
         vet3.getSpecialities().add(savedRadiology);
+        vetService.save(vet3);
 
         System.out.println("Vets loaded !");
     }
