@@ -3,7 +3,7 @@
     <parent>
         <artifactId>spring-pet-clinic</artifactId>
         <groupId>com.teza</groupId>
-        <version>0.0.4</version>
+        <version>0.0.4-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -26,7 +26,7 @@
         <dependency>
             <artifactId>pet-clinic-data</artifactId>
             <groupId>com.teza</groupId>
-            <version>0.0.4</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -87,7 +87,6 @@
     <build>
         <plugins>
             <plugin>
-                <!-- https://mvnrepository.com/artifact/ro.isdc.wro4j/wro4j-maven-plugin -->
                 <groupId>ro.isdc.wro4j</groupId>
                 <artifactId>wro4j-maven-plugin</artifactId>
                 <version>${wro4j.version}</version>
