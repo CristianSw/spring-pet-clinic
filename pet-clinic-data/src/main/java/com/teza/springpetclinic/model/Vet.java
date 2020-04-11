@@ -3,6 +3,7 @@ package com.teza.springpetclinic.model;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 public class Vet extends Person {
     @ManyToMany(fetch = FetchType.EAGER)
