@@ -5,10 +5,13 @@ import com.teza.springpetclinic.model.Pet;
 import com.teza.springpetclinic.services.OwnerService;
 import com.teza.springpetclinic.services.PetService;
 import com.teza.springpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     private final PetTypeService petTypeService;
     private final PetService petService;
@@ -38,17 +41,17 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
         Owner savedOwner = null;
         if (object != null) {
-            if (object.getPets() != null){
+            if (object.getPets() != null) {
                 object.getPets().forEach(pet -> {
-                    if (pet.getType() != null){
-                        if (pet.getType().getId() != null){
+                    if (pet.getType() != null) {
+                        if (pet.getType().getId() != null) {
                             pet.setType(petTypeService.save(pet.getType()));
                         }
-                    }else {
+                    } else {
                         throw new RuntimeException("Pet Type is required !");
                     }
 
-                    if (pet.getId() == null){
+                    if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }

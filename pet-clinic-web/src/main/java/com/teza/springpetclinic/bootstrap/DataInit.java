@@ -39,7 +39,7 @@ public class DataInit implements CommandLineRunner {
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        dog.setName("Cat");
+        cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
         Speciality radiology = new Speciality();
@@ -89,6 +89,12 @@ public class DataInit implements CommandLineRunner {
         danielaPet.setName("Mia");
         owner2.getPets().add(danielaPet);
         ownerService.save(owner2);
+
+        Visit visitCat = new Visit();
+        visitCat.setPet(danielaPet);
+        visitCat.setLocalDate(LocalDate.now());
+        visitCat.setDescription("Cat has eat something wrong.");
+        visitService.save(visitCat);
 
         System.out.println("Owners loaded !");
 
