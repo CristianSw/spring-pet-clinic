@@ -17,7 +17,7 @@ import java.io.Serializable;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
-    public BaseEntity(Long id) {
+    public BaseEntity(final Long id) {
         this.id = id;
     }
 
