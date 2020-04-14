@@ -10,9 +10,15 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 public class Vet extends Person {
+
+    @Builder
+    public Vet(final Long id, final String firstName, final String lastName, final Set<Speciality> specialities) {
+        super(id, firstName, lastName);
+        this.specialities = specialities;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vets",
             joinColumns = @JoinColumn(name = "vet_id"),

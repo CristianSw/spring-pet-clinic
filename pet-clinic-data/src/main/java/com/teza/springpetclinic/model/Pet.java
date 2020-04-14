@@ -16,7 +16,8 @@ import java.util.Set;
 public class Pet extends BaseEntity {
 
     @Builder
-    public Pet(Long id, String name, PetType type,LocalDate birthDate, Owner owner, Set<Visit> visits){
+    public Pet(final Long id, final String name, final PetType type, final LocalDate birthDate, final Owner owner,
+               final Set<Visit> visits) {
         super(id);
         this.name = name;
         this.type = type;
@@ -24,6 +25,7 @@ public class Pet extends BaseEntity {
         this.owner = owner;
         this.visits = visits;
     }
+
     @Column(name = "name")
     private String name;
     @ManyToOne

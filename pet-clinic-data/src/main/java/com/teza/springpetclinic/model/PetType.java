@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class PetType extends BaseEntity {
 
     @Builder
-    public PetType(Long id,String name){
+    public PetType(final Long id, final String name) {
         super(id);
         this.name = name;
     }

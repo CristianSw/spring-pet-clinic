@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Person extends BaseEntity {
 
-    public Person(Long id, String firstName, String lastName) {
+    public Person(final Long id, final String firstName, final String lastName) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
