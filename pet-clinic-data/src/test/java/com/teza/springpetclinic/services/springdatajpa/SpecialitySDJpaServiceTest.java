@@ -44,8 +44,8 @@ class SpecialitySDJpaServiceTest {
         when(specialityRepository.findAll()).thenReturn(specialitiesSet);
         Set<Speciality> specialities = service.findAll();
 //        then
-        assertEquals(2,specialities.size());
-        verify(specialityRepository,times(1)).findAll();
+        assertEquals(2, specialities.size());
+        verify(specialityRepository, times(1)).findAll();
     }
 
     @Test
@@ -53,7 +53,7 @@ class SpecialitySDJpaServiceTest {
         when(specialityRepository.findById(any())).thenReturn(Optional.of(returnedSpecialty));
         Speciality speciality = service.findById(specId);
         assertNotNull(speciality);
-        verify(specialityRepository,times(1)).findById(any());
+        verify(specialityRepository, times(1)).findById(any());
     }
 
     @Test
@@ -63,7 +63,7 @@ class SpecialitySDJpaServiceTest {
         Speciality speciality = service.findById(specId);
 //        then
         assertNull(speciality);
-        verify(specialityRepository,times(1)).findById(any());
+        verify(specialityRepository, times(1)).findById(any());
     }
 
     @Test
@@ -75,18 +75,18 @@ class SpecialitySDJpaServiceTest {
         Speciality savedSpeciality = service.save(speciality);
 //        then
         assertNotNull(savedSpeciality);
-        verify(specialityRepository,times(1)).save(any());
+        verify(specialityRepository, times(1)).save(any());
     }
 
     @Test
     void delete() {
         service.delete(returnedSpecialty);
-        verify(specialityRepository,times(1)).delete(any());
+        verify(specialityRepository, times(1)).delete(any());
     }
 
     @Test
     void deleteById() {
         service.deleteById(returnedSpecialty.getId());
-        verify(specialityRepository,times(1)).deleteById(any());
+        verify(specialityRepository, times(1)).deleteById(any());
     }
 }
