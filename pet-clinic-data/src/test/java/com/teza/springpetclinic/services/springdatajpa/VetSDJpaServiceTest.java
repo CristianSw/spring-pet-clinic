@@ -60,18 +60,18 @@ class VetSDJpaServiceTest {
 
     @Test
     void findById() {
-        when(vetRepository.findById(any())).thenReturn(Optional.of(returnedVet));
+        when(vetRepository.findById(anyLong())).thenReturn(Optional.of(returnedVet));
         Vet vet1 = service.findById(vetId);
         assertNotNull(vet1);
-        verify(vetRepository, times(1)).findById(any());
+        verify(vetRepository, times(1)).findById(anyLong());
     }
 
     @Test
     void findByIdNotFound() {
-        when(vetRepository.findById(any())).thenReturn(Optional.empty());
+        when(vetRepository.findById(anyLong())).thenReturn(Optional.empty());
         Vet vet1 = service.findById(vetId);
         assertNull(vet1);
-        verify(vetRepository, times(1)).findById(any());
+        verify(vetRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -94,6 +94,6 @@ class VetSDJpaServiceTest {
     @Test
     void deleteById() {
         service.deleteById(returnedVet.getId());
-        verify(vetRepository, times(1)).deleteById(any());
+        verify(vetRepository, times(1)).deleteById(anyLong());
     }
 }
