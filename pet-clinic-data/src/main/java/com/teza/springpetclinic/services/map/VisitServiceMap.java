@@ -31,10 +31,11 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
     public Visit save(Visit visit) {
 
         if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
-                || visit.getPet().getOwner().getId() == null) {
+                || visit.getPet().getOwner().getId() == null){
             throw new RuntimeException("Invalid Visit");
+        }else {
+            return super.save(visit);
         }
-        return super.save(visit);
     }
 
     @Override
