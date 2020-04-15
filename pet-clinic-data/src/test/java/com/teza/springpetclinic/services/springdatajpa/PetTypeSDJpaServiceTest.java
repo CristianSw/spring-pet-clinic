@@ -56,6 +56,7 @@ class PetTypeSDJpaServiceTest {
         assertNotNull(petType);
         verify(petTypeRepository, times(1)).findById(any());
     }
+
     @Test
     void findByIdNotFound() {
         when(petTypeRepository.findById(any())).thenReturn(Optional.empty());

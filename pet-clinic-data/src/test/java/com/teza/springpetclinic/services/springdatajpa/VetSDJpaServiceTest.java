@@ -41,8 +41,8 @@ class VetSDJpaServiceTest {
         when(vetRepository.findByLastName(any())).thenReturn(returnedVet);
         Vet vet = service.findByLastName(LAST_NAME);
         assertNotNull(vet);
-        assertEquals(LAST_NAME,vet.getLastName());
-        verify(vetRepository,times(1)).findByLastName(any());
+        assertEquals(LAST_NAME, vet.getLastName());
+        verify(vetRepository, times(1)).findByLastName(any());
     }
 
     @Test
@@ -54,8 +54,8 @@ class VetSDJpaServiceTest {
         when(vetRepository.findAll()).thenReturn(vets);
         Set<Vet> findVets = service.findAll();
         assertNotNull(findVets);
-        assertEquals(2,findVets.size());
-        verify(vetRepository,times(1)).findAll();
+        assertEquals(2, findVets.size());
+        verify(vetRepository, times(1)).findAll();
     }
 
     @Test
@@ -63,14 +63,15 @@ class VetSDJpaServiceTest {
         when(vetRepository.findById(any())).thenReturn(Optional.of(returnedVet));
         Vet vet1 = service.findById(vetId);
         assertNotNull(vet1);
-        verify(vetRepository,times(1)).findById(any());
+        verify(vetRepository, times(1)).findById(any());
     }
+
     @Test
     void findByIdNotFound() {
         when(vetRepository.findById(any())).thenReturn(Optional.empty());
         Vet vet1 = service.findById(vetId);
         assertNull(vet1);
-        verify(vetRepository,times(1)).findById(any());
+        verify(vetRepository, times(1)).findById(any());
     }
 
     @Test
@@ -80,19 +81,19 @@ class VetSDJpaServiceTest {
         Vet savedVet = service.save(vetToBeSaved);
 
         assertNotNull(savedVet);
-        assertEquals(vetToBeSaved.getId(),savedVet.getId());
-        verify(vetRepository,times(1)).save(any());
+        assertEquals(vetToBeSaved.getId(), savedVet.getId());
+        verify(vetRepository, times(1)).save(any());
     }
 
     @Test
     void delete() {
         service.delete(returnedVet);
-        verify(vetRepository,times(1)).delete(any());
+        verify(vetRepository, times(1)).delete(any());
     }
 
     @Test
     void deleteById() {
         service.deleteById(returnedVet.getId());
-        verify(vetRepository,times(1)).deleteById(any());
+        verify(vetRepository, times(1)).deleteById(any());
     }
 }
