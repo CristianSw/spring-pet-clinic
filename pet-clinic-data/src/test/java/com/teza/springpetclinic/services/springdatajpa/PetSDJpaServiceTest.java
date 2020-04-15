@@ -15,8 +15,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PetSDJpaServiceTest {
@@ -42,7 +41,9 @@ class PetSDJpaServiceTest {
         when(petRepository.findAll()).thenReturn(returnedPetsSet);
         Set<Pet> pets = service.findAll();
 //        then
-        assertEquals(2,pets.size());
+        assertNotNull(pets);
+        assertEquals(2, pets.size());
+        verify(petRepository, times(1)).findAll();
     }
 
     @Test
@@ -50,12 +51,15 @@ class PetSDJpaServiceTest {
         when(petRepository.findById(any())).thenReturn(Optional.of(returnPet));
         Pet pet = service.findById(petId);
         assertNotNull(pet);
+        verify(petRepository, times(1)).findById(any());
     }
+
     @Test
     void findByIdNotFound() {
         when(petRepository.findById(any())).thenReturn(Optional.empty());
         Pet pet = service.findById(petId);
         assertNull(pet);
+        verify(petRepository, times(1)).findById(any());
     }
 
     @Test
@@ -67,18 +71,18 @@ class PetSDJpaServiceTest {
         Pet savedPet = service.save(petToBeSaved);
 //        then
         assertNotNull(savedPet);
-        verify(petRepository).save(any());
+        verify(petRepository, times(1)).save(any());
     }
 
     @Test
     void delete() {
         service.delete(returnPet);
-        verify(petRepository).delete(any());
+        verify(petRepository, times(1)).delete(any());
     }
 
     @Test
     void deleteById() {
         service.deleteById(petId);
-        verify(petRepository).deleteById(any());
+        verify(petRepository, times(1)).deleteById(any());
     }
 }

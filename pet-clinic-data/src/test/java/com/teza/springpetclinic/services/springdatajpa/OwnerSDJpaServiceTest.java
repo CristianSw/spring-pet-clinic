@@ -18,8 +18,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
@@ -44,8 +43,8 @@ class OwnerSDJpaServiceTest {
     void findByLastName() {
         when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
         Owner dolinta = service.findByLastName(LAST_NAME);
-        assertEquals(LAST_NAME,dolinta.getLastName());
-        verify(ownerRepository).findByLastName(any());
+        assertEquals(LAST_NAME, dolinta.getLastName());
+        verify(ownerRepository, times(1)).findByLastName(any());
     }
 
     @Test
@@ -58,7 +57,8 @@ class OwnerSDJpaServiceTest {
         Set<Owner> owners = service.findAll();
 
         assertNotNull(owners);
-        assertEquals(2,owners.size());
+        assertEquals(2, owners.size());
+        verify(ownerRepository, times(1)).findAll();
 
     }
 
@@ -67,6 +67,7 @@ class OwnerSDJpaServiceTest {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
         Owner owner = service.findById(1L);
         assertNotNull(owner);
+        verify(ownerRepository, times(1)).findById(any());
     }
 
     @Test
@@ -74,6 +75,7 @@ class OwnerSDJpaServiceTest {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
         Owner owner = service.findById(1L);
         assertNull(owner);
+        verify(ownerRepository, times(1)).findById(any());
     }
 
     @Test
@@ -82,18 +84,18 @@ class OwnerSDJpaServiceTest {
         when(ownerRepository.save(any())).thenReturn(ownerToSave);
         Owner savedOwner = service.save(ownerToSave);
         assertNotNull(savedOwner);
-        verify(ownerRepository).save(any());
+        verify(ownerRepository, times(1)).save(any());
     }
 
     @Test
     void delete() {
         service.delete(returnOwner);
-        verify(ownerRepository).delete(any());
+        verify(ownerRepository, times(1)).delete(any());
     }
 
     @Test
     void deleteById() {
         service.deleteById(returnOwner.getId());
-        verify(ownerRepository).deleteById(any());
+        verify(ownerRepository, times(1)).deleteById(any());
     }
 }
