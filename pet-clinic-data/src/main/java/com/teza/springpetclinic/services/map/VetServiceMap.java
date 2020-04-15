@@ -54,6 +54,10 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet findByLastName(final String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(vet -> vet.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }

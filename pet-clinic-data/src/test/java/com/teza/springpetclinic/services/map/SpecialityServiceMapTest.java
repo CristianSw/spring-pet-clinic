@@ -40,12 +40,12 @@ class SpecialityServiceMapTest {
     void save() {
         Long id = 2L;
         specialityServiceMap.save(Speciality.builder().id(id).build());
-        assertEquals(2,specialityServiceMap.findAll().size());
+        assertEquals(2, specialityServiceMap.findAll().size());
     }
 
     @Test
     void findById() {
-        Speciality specialities =  specialityServiceMap.findById(specId);
-        assertEquals(specialities.getId(),specialityServiceMap.findById(specId).getId());
+        Speciality specialities = specialityServiceMap.findById(specId);
+        assertEquals(specialities.getId(), specialityServiceMap.findById(specId).getId());
     }
 }
