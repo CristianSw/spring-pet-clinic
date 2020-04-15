@@ -51,18 +51,18 @@ class PetTypeSDJpaServiceTest {
 
     @Test
     void findById() {
-        when(petTypeRepository.findById(any())).thenReturn(Optional.of(returnedPetType));
+        when(petTypeRepository.findById(anyLong())).thenReturn(Optional.of(returnedPetType));
         PetType petType = service.findById(petTypeId);
         assertNotNull(petType);
-        verify(petTypeRepository, times(1)).findById(any());
+        verify(petTypeRepository, times(1)).findById(anyLong());
     }
 
     @Test
     void findByIdNotFound() {
-        when(petTypeRepository.findById(any())).thenReturn(Optional.empty());
+        when(petTypeRepository.findById(anyLong())).thenReturn(Optional.empty());
         PetType petType = service.findById(petTypeId);
         assertNull(petType);
-        verify(petTypeRepository, times(1)).findById(any());
+        verify(petTypeRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -88,6 +88,6 @@ class PetTypeSDJpaServiceTest {
     @Test
     void deleteById() {
         service.deleteById(returnedPetType.getId());
-        verify(petTypeRepository, times(1)).deleteById(any());
+        verify(petTypeRepository, times(1)).deleteById(anyLong());
     }
 }

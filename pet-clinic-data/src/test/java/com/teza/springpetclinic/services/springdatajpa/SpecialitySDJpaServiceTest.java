@@ -50,20 +50,20 @@ class SpecialitySDJpaServiceTest {
 
     @Test
     void findById() {
-        when(specialityRepository.findById(any())).thenReturn(Optional.of(returnedSpecialty));
+        when(specialityRepository.findById(anyLong())).thenReturn(Optional.of(returnedSpecialty));
         Speciality speciality = service.findById(specId);
         assertNotNull(speciality);
-        verify(specialityRepository, times(1)).findById(any());
+        verify(specialityRepository, times(1)).findById(anyLong());
     }
 
     @Test
     void findByIdNotFound() {
 //        when
-        when(specialityRepository.findById(any())).thenReturn(Optional.empty());
+        when(specialityRepository.findById(anyLong())).thenReturn(Optional.empty());
         Speciality speciality = service.findById(specId);
 //        then
         assertNull(speciality);
-        verify(specialityRepository, times(1)).findById(any());
+        verify(specialityRepository, times(1)).findById(anyLong());
     }
 
     @Test
@@ -87,6 +87,6 @@ class SpecialitySDJpaServiceTest {
     @Test
     void deleteById() {
         service.deleteById(returnedSpecialty.getId());
-        verify(specialityRepository, times(1)).deleteById(any());
+        verify(specialityRepository, times(1)).deleteById(anyLong());
     }
 }
