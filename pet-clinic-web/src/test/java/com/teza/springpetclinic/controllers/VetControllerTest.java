@@ -1,5 +1,6 @@
 package com.teza.springpetclinic.controllers;
 
+
 import com.teza.springpetclinic.model.Vet;
 import com.teza.springpetclinic.services.VetService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,17 +24,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class VetControllerTest {
 
     @Mock
-    VetService vetService;
+    com.teza.springpetclinic.services.VetService vetService;
     @InjectMocks
     VetController controller;
-    Set<Vet> vet;
+    Set<com.teza.springpetclinic.model.Vet> vet;
     MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
         vet = new HashSet<>();
         vet.add(Vet.builder().id(1L).build());
-        vet.add(Vet.builder().id(1L).build());
+        vet.add(Vet.builder().id(2L).build());
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
     @Test
