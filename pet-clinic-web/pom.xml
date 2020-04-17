@@ -16,10 +16,6 @@
         <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
         <webjars-jquery.version>2.2.4</webjars-jquery.version>
         <wro4j.version>1.8.0</wro4j.version>
-
-        <jacoco.version>0.8.5</jacoco.version>
-        <nohttp-checkstyle.version>0.0.4.RELEASE</nohttp-checkstyle.version>
-        <spring-format.version>0.0.20</spring-format.version>
     </properties>
 
     <dependencies>
@@ -28,6 +24,7 @@
             <groupId>com.teza</groupId>
             <version>0.0.4</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -49,9 +46,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
-
 
         <!-- webjars -->
         <dependency>
@@ -97,12 +92,17 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <!-- https://mvnrepository.com/artifact/ro.isdc.wro4j/wro4j-maven-plugin -->
                 <groupId>ro.isdc.wro4j</groupId>
                 <artifactId>wro4j-maven-plugin</artifactId>
                 <version>${wro4j.version}</version>
@@ -130,22 +130,10 @@
                     <dependency>
                         <groupId>org.mockito</groupId>
                         <artifactId>mockito-core</artifactId>
-                        <version>${mockito.version}</version>
+                        <version>3.1.0</version>
+                        <scope>compile</scope>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-                <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-<!--                <includes>-->
-<!--                    <include>com.teza.springpetclinic.services</include>-->
-<!--                    <include>com.teza.springpetclinic.controllers</include>-->
-<!--                    <include>com.teza.springpetclinic.repositories</include>-->
-<!--                </includes>-->
-            </configuration>
             </plugin>
         </plugins>
     </build>
