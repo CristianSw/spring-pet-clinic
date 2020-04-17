@@ -75,9 +75,4 @@
         </plugins>
     </build>
 
-    <scm>
-        <developerConnection>scm:git:https://github.com/CristianSw/spring-pet-clinic.git</developerConnection>
-        <tag>spring-pet-clinic-0.0.4</tag>
-    </scm>
-
 </project>
