@@ -16,6 +16,7 @@
         <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
         <webjars-jquery.version>2.2.4</webjars-jquery.version>
         <wro4j.version>1.8.0</wro4j.version>
+<!--        removed some unnecessary webjars-->
     </properties>
 
     <dependencies>
@@ -92,6 +93,7 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
+<!--        fixing versions for mockito-junit-jupiter and added test scope-->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
@@ -135,6 +137,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+<!--            removed maven-surefire-plugin-->
         </plugins>
     </build>
 </project>
