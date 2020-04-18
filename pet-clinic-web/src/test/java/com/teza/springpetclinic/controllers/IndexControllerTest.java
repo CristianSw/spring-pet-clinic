@@ -25,21 +25,23 @@ class IndexControllerTest {
     }
 
     @Test
-    void testMockMVCSlash() throws Exception{
+    void testMockMVCSlash() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
     }
+
     @Test
-    void testMockMVCIndex() throws Exception{
+    void testMockMVCIndex() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(get("/home"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"));
     }
+
     @Test
-    void testMockMVCIndexHTML() throws Exception{
+    void testMockMVCIndexHTML() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(get("/index.html"))
                 .andExpect(status().isOk())

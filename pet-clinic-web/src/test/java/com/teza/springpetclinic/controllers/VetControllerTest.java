@@ -37,13 +37,14 @@ class VetControllerTest {
         vet.add(Vet.builder().id(2L).build());
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
+
     @Test
     void listOfVets() throws Exception {
         when(vetService.findAll()).thenReturn(vet);
         mockMvc.perform(get("/vets.html"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("vets/index"))
-                .andExpect(model().attribute("vets",hasSize(2)));
+                .andExpect(model().attribute("vets", hasSize(2)));
     }
 
     @Test
@@ -52,22 +53,24 @@ class VetControllerTest {
         mockMvc.perform(get("/vets.html/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("vets/index"))
-                .andExpect(model().attribute("vets",hasSize(2)));
+                .andExpect(model().attribute("vets", hasSize(2)));
     }
+
     @Test
     void listOfVetsIndex() throws Exception {
         when(vetService.findAll()).thenReturn(vet);
         mockMvc.perform(get("/vets.html/index"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("vets/index"))
-                .andExpect(model().attribute("vets",hasSize(2)));
+                .andExpect(model().attribute("vets", hasSize(2)));
     }
+
     @Test
     void listOfVetsIndexHTML() throws Exception {
         when(vetService.findAll()).thenReturn(vet);
         mockMvc.perform(get("/vets.html/index.html"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("vets/index"))
-                .andExpect(model().attribute("vets",hasSize(2)));
+                .andExpect(model().attribute("vets", hasSize(2)));
     }
 }

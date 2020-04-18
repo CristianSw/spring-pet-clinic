@@ -71,7 +71,7 @@ public class DataInit implements CommandLineRunner {
 
         Visit visitDog = new Visit();
         visitDog.setPet(cristianPet);
-        visitDog.setLocalDate(LocalDate.now());
+        visitDog.setDate(LocalDate.now());
         visitDog.setDescription("Dog has eat something wrong.");
         visitService.save(visitDog);
 
@@ -92,7 +92,7 @@ public class DataInit implements CommandLineRunner {
 
         Visit visitCat = new Visit();
         visitCat.setPet(danielaPet);
-        visitCat.setLocalDate(LocalDate.now());
+        visitCat.setDate(LocalDate.now());
         visitCat.setDescription("Cat has eat something wrong.");
         visitService.save(visitCat);
 

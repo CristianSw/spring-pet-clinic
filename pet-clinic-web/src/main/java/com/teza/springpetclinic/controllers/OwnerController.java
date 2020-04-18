@@ -24,30 +24,31 @@ public class OwnerController {
     }
 
     @InitBinder
-    public void setAllowedFields(WebDataBinder webDataBinder){
+    public void setAllowedFields(WebDataBinder webDataBinder) {
         webDataBinder.setDisallowedFields("id");
     }
 
 
     @RequestMapping("/find")
-    public String findOwners(Model model){
+    public String findOwners(Model model) {
         model.addAttribute("owner", Owner.builder().build());
         return "owners/findOwners";
     }
+
     @GetMapping
-    public String processFindForm(Owner owner, BindingResult result, Model model){
-        if (owner.getLastName() == null){
+    public String processFindForm(Owner owner, BindingResult result, Model model) {
+        if (owner.getLastName() == null) {
             owner.setLastName("");
         }
 
         List<Owner> results = ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
-        if (results.isEmpty()){
+        if (results.isEmpty()) {
             result.rejectValue("LastName", "Not Found", "Not Found");
             return "owners/findOwners";
-        }else if (results.size() == 1){
+        } else if (results.size() == 1) {
             owner = results.get(0);
             return "redirect:/owners/" + owner.getId();
-        }else {
+        } else {
             model.addAttribute("selections", results);
             return "owners/ownersList";
         }
@@ -55,37 +56,38 @@ public class OwnerController {
     }
 
     @GetMapping("/{ownerId}")
-    public ModelAndView showOwner(@PathVariable Long ownerId){
+    public ModelAndView showOwner(@PathVariable Long ownerId) {
         ModelAndView mav = new ModelAndView("owners/ownerDetails");
         mav.addObject(ownerService.findById(ownerId));
         return mav;
     }
 
     @GetMapping("/new")
-    public String initCreationOwnerForm(Model model){
+    public String initCreationOwnerForm(Model model) {
         model.addAttribute("owner", Owner.builder().build());
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
     @PostMapping("/new")
-    public String processCreationOwnerForm(@Valid Owner owner, BindingResult result){
-        if (result.hasErrors()){
-            return  VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+    public String processCreationOwnerForm(@Valid Owner owner, BindingResult result) {
+        if (result.hasErrors()) {
+            return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         } else {
             Owner savedOwner = ownerService.save(owner);
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
+
     @GetMapping("/{ownerId}/edit")
-    public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model){
+    public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
         model.addAttribute(ownerService.findById(ownerId));
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
     @PostMapping("/{ownerId}/edit")
-    public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId){
-        if (result.hasErrors()){
-            return  VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+    public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
+        if (result.hasErrors()) {
+            return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         } else {
             owner.setId(ownerId);
             Owner savedOwner = ownerService.save(owner);

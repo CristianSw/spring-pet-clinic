@@ -14,15 +14,15 @@ import java.time.LocalDate;
 public class Visit extends BaseEntity {
 
     @Builder
-    public Visit(final Long id, final LocalDate localDate, final String description, final Pet pet){
+    public Visit(final Long id, final LocalDate date, final String description, final Pet pet){
         super(id);
-        this.localDate = localDate;
+        this.date = date;
         this.description = description;
         this.pet = pet;
     }
 
     @Column(name = "local_date")
-    private LocalDate localDate;
+    private LocalDate date;
     @Column(name = "description")
     private String description;
     @ManyToOne
