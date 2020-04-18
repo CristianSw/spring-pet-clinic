@@ -16,11 +16,11 @@ import java.util.Set;
 public class Pet extends BaseEntity {
 
     @Builder
-    public Pet(final Long id, final String name, final PetType type, final LocalDate birthDate, final Owner owner,
+    public Pet(final Long id, final String name, final PetType PetType, final LocalDate birthDate, final Owner owner,
                final Set<Visit> visits) {
         super(id);
         this.name = name;
-        this.type = type;
+        this.PetType = PetType;
         this.birthDate = birthDate;
         this.owner = owner;
         this.visits = visits;
@@ -30,7 +30,7 @@ public class Pet extends BaseEntity {
     private String name;
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private PetType type;
+    private PetType PetType;
     @Column(name = "birth_date")
     private LocalDate birthDate;
     @ManyToOne
