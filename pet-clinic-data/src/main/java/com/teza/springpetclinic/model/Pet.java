@@ -1,8 +1,10 @@
 package com.teza.springpetclinic.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,11 +31,13 @@ public class Pet extends BaseEntity {
     }
 
     @Column(name = "name")
+    @NotEmpty
     private String name;
     @ManyToOne
     @JoinColumn(name = "type_id")
     private PetType PetType;
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "YYYY-MM-DD")
     private LocalDate birthDate;
     @ManyToOne
     @JoinColumn(name = "owner_id")
