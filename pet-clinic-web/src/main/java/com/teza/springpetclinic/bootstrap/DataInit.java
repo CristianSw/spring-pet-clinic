@@ -35,23 +35,41 @@ public class DataInit implements CommandLineRunner {
 
     private void loadData() {
         PetType dog = new PetType();
-        dog.setName("Dog");
+        dog.setName("Câine");
         PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
-        cat.setName("Cat");
+        cat.setName("Pisică");
         PetType savedCatPetType = petTypeService.save(cat);
 
+        PetType hamster = new PetType();
+        hamster.setName("Hamster");
+        PetType savedHamsterType = petTypeService.save(hamster);
+
+        PetType turtle = new PetType();
+        turtle.setName("Broască Ţistoasă");
+        PetType savedTurtleType = petTypeService.save(turtle);
+
+        PetType snake = new PetType();
+        snake.setName("Şarpe");
+        PetType savedSnakeType = petTypeService.save(snake);
+
+        PetType hedgehong = new PetType();
+        hedgehong.setName("Arici");
+        PetType savedHedgehongType = petTypeService.save(hedgehong);
+
+
+
         Speciality radiology = new Speciality();
-        radiology.setDescription("Radiology");
+        radiology.setDescription("Radiolog");
         Speciality savedRadiology = specialityService.save(radiology);
 
         Speciality surgery = new Speciality();
-        surgery.setDescription("Surgery");
+        surgery.setDescription("Chirurg");
         Speciality savedSurgery = specialityService.save(surgery);
 
         Speciality dentistry = new Speciality();
-        dentistry.setDescription("Dentistry");
+        dentistry.setDescription("Dentist");
         Speciality savedDentistry = specialityService.save(dentistry);
 
         Owner owner1 = new Owner();

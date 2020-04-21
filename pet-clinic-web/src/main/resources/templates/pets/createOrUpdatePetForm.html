@@ -17,11 +17,11 @@
         </div>
       </div>
       <input
-        th:replace="~{fragments/inputField :: input ('Numele', 'name', 'text')}" />
+        th:replace="~{fragments/inputField :: input ('Numele', 'name', 'text')}"  required/>
       <input
-        th:replace="~{fragments/inputField :: input ('Data naşterii', 'birthDate', 'date')}" />
+        th:replace="~{fragments/inputField :: input ('Data naşterii', 'birthDate', 'date')}" required />
       <input
-        th:replace="~{fragments/selectField :: select ('Tip', 'petType', ${petType})}" />
+        th:replace="~{fragments/selectField :: select ('Tip', 'petType', ${petType})}" required/>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

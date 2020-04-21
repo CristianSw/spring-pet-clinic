@@ -7,20 +7,20 @@
   <form th:object="${owner}" class="form-horizontal" id="add-owner-form" method="post">
     <div class="form-group has-feedback">
       <input
-        th:replace="~{fragments/inputField :: input ('Numele', 'firstName', 'text')}" />
+        th:replace="~{fragments/inputField :: input ('Numele', 'firstName', 'text')}" required/>
       <input
-        th:replace="~{fragments/inputField :: input ('Prenumele', 'lastName', 'text')}" />
+        th:replace="~{fragments/inputField :: input ('Prenumele', 'lastName', 'text')}" required/>
       <input
         th:replace="~{fragments/inputField :: input ('Adresa', 'address', 'text')}" />
       <input
         th:replace="~{fragments/inputField :: input ('Localitate', 'city', 'text')}" />
       <input
-        th:replace="~{fragments/inputField :: input ('Telefon', 'telephone', 'text')}" />
+        th:replace="~{fragments/inputField :: input ('Telefon', 'telephone', 'text')}" required/>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button
-          th:with="text=${owner['new']} ? 'Adaugă proprietar' : 'Update Owner'"
+          th:with="text=${owner['new']} ? 'Adaugă proprietar' : 'Modifica Proprietar'"
           class="btn btn-default" type="submit" th:text="${text}">Add
         Owner</button>
       </div>

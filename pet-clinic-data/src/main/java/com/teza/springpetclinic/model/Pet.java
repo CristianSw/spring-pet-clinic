@@ -37,7 +37,6 @@ public class Pet extends BaseEntity {
     @JoinColumn(name = "type_id")
     private PetType PetType;
     @Column(name = "birth_date")
-    @DateTimeFormat(pattern = "YYYY-MM-DD")
     private LocalDate birthDate;
     @ManyToOne
     @JoinColumn(name = "owner_id")
