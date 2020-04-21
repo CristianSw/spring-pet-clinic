@@ -77,7 +77,7 @@ public class DataInit implements CommandLineRunner {
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Daniela");
-        owner2.setLastName("Tanas");
+        owner2.setLastName("Dolinta");
         owner2.setAddress("Some Street");
         owner2.setCity("Balabanesti");
         owner2.setTelephone("+37379356933");
@@ -114,7 +114,7 @@ public class DataInit implements CommandLineRunner {
         Vet vet3 = new Vet();
         vet3.setFirstName("Alexander");
         vet3.setLastName("Hulk");
-        vet3.getSpecialities().add(savedRadiology);
+        vet3.getSpecialities().add(savedDentistry);
         vetService.save(vet3);
 
         System.out.println("Vets loaded !");
