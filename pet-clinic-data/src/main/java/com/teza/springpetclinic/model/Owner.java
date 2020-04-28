@@ -15,8 +15,6 @@ import java.util.Set;
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
-
-
     @Builder
     public Owner(final Long id, final String firstName, final String lastName, final String address, final String city,
                  final String telephone, final Set<Pet> pets) {
