@@ -11,7 +11,7 @@
 <!--    Added properties that activate spring-boot-repackage-skip-->
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
-        <hibernate.validator.version>6.1.2.Final</hibernate.validator.version>
+        <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
     </properties>
 
     <dependencies>
